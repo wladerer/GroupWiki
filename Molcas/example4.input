@@ -1,0 +1,64 @@
+*$Revision: 7.8 $
+*-------------------------------------------------------------------------------
+* Molecule: Benzene C6H6
+* Basis: STO-3G
+* Symmetry: C1
+* Features tested: SEW,SCF,RASSCF,MCKINLEY,MCLR
+* Responsible person: B. O. Roos 041227
+* Comments: Test of MckKinley and MCLR
+*-------------------------------------------------------------------------------
+ &SEWARD &END
+Title
+Benzene, STO-3g Basis set E(init) -227.89094 E(final) -227.89136
+
+Symmetry
+x y z
+Basis set
+C.STO-3G....
+C1      -2.29959  -1.32767   0.00000
+C2       0.00000   2.65533   0.00000
+End of basis
+
+Basis set
+H.STO-3G....
+H1      -4.07081  -2.35028   0.00000
+H2       0.00000   4.70057   0.00000
+End of basis
+End of input
+*-------------------------------------------------------------------------------
+ &SCF &END
+Title
+Benzene, STO-3g Basis set E(init) -227.89094 E(final) -227.89136
+ITERATIONS
+ 20
+Occupied
+6 4 5 3 1 1 1 0
+End of input
+*-------------------------------------------------------------------------------
+ &RASSCF &END
+Title
+Benzene Singlet
+Symmetry
+ 1
+Spin
+ 1
+Nactel
+ 6  0  0
+Inactive Orbitals
+6 4 5 3 0 0 0 0
+Ras2 Orbitals
+0 0 0 0 2 1 2 1
+LumOrb
+Iter
+50,25
+CIMX
+20
+End of Input
+*-------------------------------------------------------------------------------
+ &MCKINLEY &END
+PERT
+HESS
+end of input
+*&MCLR
+*-------------------------------------------------------------------------------
+

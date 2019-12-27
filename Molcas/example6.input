@@ -1,0 +1,97 @@
+**********MOLCAS Files**********
+
+in this file is: 
+hf, explicit coordinates, expbas, hf on radical
++ rasscf, caspt2
++ geometry optimization
+
+*********Expansion*********(expbas)
+&GATEWAY
+Coord
+ 3
+Angstrom
+Lu    -1.24980195     0.95774114     0.05821307
+ O     0.68922111     1.37734307     0.26059959
+ H     1.60239085     1.57480579     0.35575734
+
+ basis=ANO-RCC-MB
+ &SEWARD
+ &SCF
+>>COPY $Project.ScfOrb INP1
+>>COPY $Project.RunFile RUNFIL1
+>>RM $Project.RunFile
+
+
+ &GATEWAY
+Coord
+ 3
+Angstrom
+Lu    -1.24980195     0.95774114     0.05821307
+ O     0.68922111     1.37734307     0.26059959
+ H     1.60239085     1.57480579     0.35575734
+
+ basis=ANO-RCC-VDZP
+ &SEWARD
+ &SCF
+
+>>COPY $Project.RunFile RUNFIL2
+>>COPY INP1 INPORB
+>>RM $Project.RunFile
+
+
+ &EXPBAS
+>>COPY $Project.ExpOrb INPORB
+ &GATEWAY
+Coord
+ 3
+Angstrom
+Lu    -1.24980195     0.95774114     0.05821307
+ O     0.68922111     1.37734307     0.26059959
+ H     1.60239085     1.57480579     0.35575734
+ basis=ANO-RCC-VDZP
+ &SEWARD
+ &SCF
+
+>>COPY $Project.RunFile RUNFIL2
+>>COPY INP1 INPORB
+>>RM $Project.RunFile
+
+ &EXPBAS
+>>COPY $Project.ExpOrb INPORB
+ &GATEWAY
+Coord
+ 3
+Angstrom
+Lu    -1.24980195     0.95774114     0.05821307
+ O     0.68922111     1.37734307     0.26059959
+ H     1.60239085     1.57480579     0.35575734
+
+ basis=ANO-RCC-VDZP
+
+>>>  EXPORT  MOLCAS_MAXITER=300 (change convergence parameters in molpro)
+
+>>> Do While
+*******Compute integrals*******
+ &SEWARD
+****************hf*************
+ &SCF
+UHF
+
+CHARGE=+1
+SPIN=2
+*********rasscf/casscf********
+ &RASSCF
+CHARGE = +1
+Nactel = 3
+Spin = 2
+Ras2 = 5 2 2 0
+CIROot = 1 1 1
+Inactive = 18 9 9 3
+************caspt2************
+ &CASPT2
+MAXITER
+200
+
+ &SLAPAF &END
+>>>  EndDo
+

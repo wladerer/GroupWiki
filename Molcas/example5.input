@@ -1,0 +1,26 @@
+*$Revision: 7.8 $
+*-------------------------------------------------------------------------------
+* Molecule: Ethane (C2H6)
+* Basis: ANO-S, DZ
+* Symmetry: C2h
+* Features tested: GUESSORB, SCF, DFT
+* Responsible person: B. O. Roos 041227
+* Comments:
+*-------------------------------------------------------------------------------
+ &GATEWAY
+coord 
+$MOLCAS/Test/input/C2H6.xyz 
+basis
+ANO-S-VDZ
+group
+y xz
+*-------------------------------------------------------------------------------
+ &SEWARD
+Title
+Ethane DFT test job
+*-------------------------------------------------------------------------------
+>>foreach DFT in (BLYP, B3LYP )
+ &SCF ; KSDFT = $DFT
+>>enddo 
+*-------------------------------------------------------------------------------
+
