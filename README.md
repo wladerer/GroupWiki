@@ -6,7 +6,7 @@
 - [ ] VASP input files
 - [ ] Gaussian input files
 - [ ] Turbomol input files
-- [ ] Github guide 
+- [x] Github guide 
 - [ ] Surface and Bulk files
 
 
