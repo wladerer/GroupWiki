@@ -2,7 +2,7 @@
 # Todo 
 
 - [x] Molcas input files
-- [ ] Molpro input files
+- [x] Molpro input files
 - [ ] VASP input files
 - [ ] Gaussian input files
 - [ ] Turbomol input files
