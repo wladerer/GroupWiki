@@ -1,0 +1,3 @@
+These are some of the basic surfaces that have been used so far for cluster catalysis modelling. a-Al2O3 is the alpha-alumina, sorted by z-coordinate, 
+alumina_full is sorted by element, and alumina_POSCAR in the form of a POSCAR. CONTCAR-1-amorph_Al2O3 is the amorphous alumina model, rutile.xyz and 
+TiO2_POSCAR are the two forms of TiO2, SiO2f is the small amorphous silica model, and SiO2-annealed is the large amorphous SiO2 model.
