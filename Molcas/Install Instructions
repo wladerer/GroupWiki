@@ -69,7 +69,7 @@ export PATH="$HOME/OpenMolcas/build:$PATH"
 [esc]
 [:wq]
 [enter]
-$source ~/.bashrc.ext
+$source ~/.bashrc
 
 This is how you set your PATH environment variable so that you may be able to call the pymolcas command
 
