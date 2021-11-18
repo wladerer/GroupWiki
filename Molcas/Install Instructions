@@ -1,0 +1,78 @@
+Adapted from Santiago
+Nov. 17, 2021
+
+---
+Make sure you have created a new MFA token and have access to your authneticator app
+If not, instructions may be found here: https://docs.nersc.gov/connect/mfa/
+
+
+The following list contains some commands that may be useful-
+cd  (brings you to your home directory)
+ls -a (lists  all contents of the current directory)
+cd "directory name" (changes the current directory to a specified directory)
+mkdir "new directory name" (creates a new directory with a name specified by the user)
+vi "filename.extension" (creates a new or opens an existing file of the name  "filename.extension" in the current directory)
+
+
+Finally, in this guide, everything followed by a $ is a command meant to put input into the command line of your terminal. Everything contained within square brackets [] will be a single keystroke or multiple keystrokes that are used to interface with menus and text editors. 
+---
+
+
+Open Terminal
+
+$ ssh username@cori.nersc.gov
+
+After putting in your password and OTP, you will arive in your home directory (referred to as $HOME)
+
+$ git clone https://gitlab.com/Molcas/OpenMolcas.git
+$ cd OpenMolcas
+$ mkdir build
+$ cd build
+$ module load cmake
+$ cd ..; git submodule update --init /global/homes/w/wladerer/OpenMolcas/External/lapack; cd build; cmake ../../OpenMolcas
+$ cmake ../../OpenMolcas
+$ ccmake .
+
+This will display an interface with a text based window. 
+
+First press:
+[t] (toggle advanced mode)
+
+You should see a new menu open. Within this menu are settings you must adjust. You can navigate using your scroll wheel or arrow keys. You may select or toggle settings using the enter key. 
+
+Next:
+- set MKLROOT to /opt/intel/compilers_and_libraries_2019.3.199/linux/mkl
+- change LINALG from Internal to MKL
+- change OPENMP to on
+- change TOOLS to on
+
+Next press:
+[c] (configure)
+
+Finally:
+[e] (exit)
+or
+[q] (quit)
+
+From here you should arrive back in your build directory. You may try 
+
+$ pymolcas verify
+
+This will start an incredibly long process (~2hrs). If you are willing to wait that long, great. If not, type Ctrl + Z to abort the current process. 
+
+**If the command is not recognized**
+
+$ cd
+$ vi .bashrc.ext
+[i]
+export PATH="$HOME/OpenMolcas/build:$PATH"
+[esc]
+[:wq]
+[enter]
+$source ~/.bashrc.ext
+
+This is how you set your PATH environment variable so that you may be able to call the pymolcas command
+
+$pymolcas
+
+You should then see a list of text detailing various uses of pymolcas. If this does not work, then idk what you did and good luck.
