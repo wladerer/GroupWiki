@@ -76,3 +76,24 @@ This is how you set your PATH environment variable so that you may be able to ca
 $pymolcas
 
 You should then see a list of text detailing various uses of pymolcas. If this does not work, then idk what you did and good luck.
+
+---
+Next, we need to copy the genseward exectuable into your build directoy. In a *new* command window type the followng:
+
+$ sftp username@cori.nersc.gov
+
+Input your password and OTP
+
+$ cd OpenMolcas/build
+$ lcd "local path to wherever you saved the genseward executable" (probably your downloads - dont include the filename)
+$ put genseward
+
+Switch to your previous command window and use ls -a in the build directory to ensure genseward has been copied to that directory. 
+Once you have confirmed you have the file, use the following command
+
+$ chmod +x genseward
+
+After you press enter, you should get only a newline. 
+
+
+
